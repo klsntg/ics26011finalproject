@@ -281,7 +281,636 @@ class DatabaseHandler (context: Context) : SQLiteOpenHelper (context, DATABASE_N
             put(KEY_ADD_TO_FAVE, 0)
         }
         db?.insert(TABLE_DETAILS, null, book8)
+
+        val book9 = ContentValues().apply {
+            put(KEY_TITLE, "The Power of Habit")
+            put(KEY_AUTHOR, "Charles Duhigg")
+            put(KEY_CATEGORY_ID_FK, getCategoryID("Non-Fiction", db))
+            put(KEY_RATING, "4.7/5")
+            put(KEY_PRICE, "PHP 800")
+            put(KEY_DESCRIPTION,"The Power of Habit\" by Charles Duhigg is an illuminating exploration into the science of habits. Duhigg delves into the neurological patterns that shape our routines, providing insights into how habits work and how they can be transformed. With compelling real-life stories and insightful analysis, the book offers practical advice for harnessing the power of habit to achieve positive change.")
+            put(KEY_IMAGE_SOURCE, "drawable/book9")
+            put(KEY_ADD_TO_LIBRARY, 0)
+            put(KEY_ADD_TO_FAVE, 0)
+        }
+        db?.insert(TABLE_DETAILS, null, book9)
+
+        val book10 = ContentValues().apply {
+            put(KEY_TITLE, "Pride and Prejudice")
+            put(KEY_AUTHOR, "Jane Austen")
+            put(KEY_CATEGORY_ID_FK, getCategoryID("Classics", db))
+            put(KEY_RATING, "4.8/5")
+            put(KEY_PRICE, "PHP 600")
+            put(KEY_DESCRIPTION,"\"Pride and Prejudice\" by Jane Austen is a timeless classic that explores themes of love, class, and societal expectations. Set in the Regency era, the novel follows the headstrong Elizabeth Bennet as she navigates the challenges of love and social norms. Austen's wit and insight into human nature make this novel a captivating exploration of the complexities of relationships in a bygone era.\n")
+            put(KEY_IMAGE_SOURCE, "drawable/book10")
+            put(KEY_ADD_TO_LIBRARY, 0)
+            put(KEY_ADD_TO_FAVE, 0)
+        }
+        db?.insert(TABLE_DETAILS, null, book10)
+
+        val book11 = ContentValues().apply {
+            put(KEY_TITLE, "The Hobbit")
+            put(KEY_AUTHOR, "J.R.R Tolkien")
+            put(KEY_CATEGORY_ID_FK, getCategoryID("Fantasy", db))
+            put(KEY_RATING, "4.9/5")
+            put(KEY_PRICE, "PHP 700")
+            put(KEY_DESCRIPTION,"\"The Hobbit\" by J.R.R. Tolkien is a classic fantasy adventure that follows the journey of Bilbo Baggins, a hobbit who is thrust into a quest to reclaim a dragon's treasure. Set in the rich and immersive world of Middle-earth, this novel introduces readers to iconic characters, mythical creatures, and the epic struggle between good and evil. A must-read for fantasy enthusiasts and fans of Tolkien's masterful storytelling.\n")
+            put(KEY_IMAGE_SOURCE, "drawable/book11")
+            put(KEY_ADD_TO_LIBRARY, 0)
+            put(KEY_ADD_TO_FAVE, 0)
+        }
+        db?.insert(TABLE_DETAILS, null, book11)
+
+        val book12 = ContentValues().apply {
+            put(KEY_TITLE, "The Fault in Our Stars")
+            put(KEY_AUTHOR, "John Green")
+            put(KEY_CATEGORY_ID_FK, getCategoryID("Young Adult", db))
+            put(KEY_RATING, "4.5/5")
+            put(KEY_PRICE, "PHP 500")
+            put(KEY_DESCRIPTION,"\"The Fault in Our Stars\" by John Green is a poignant young adult novel that tells the story of Hazel Grace Lancaster, a teenager living with cancer. The novel explores themes of love, loss, and the search for meaning in the face of illness. Green's heartfelt prose and relatable characters make this book a powerful exploration of the human experience for young adult readers.")
+            put(KEY_IMAGE_SOURCE, "drawable/book12")
+            put(KEY_ADD_TO_LIBRARY, 0)
+            put(KEY_ADD_TO_FAVE, 0)
+        }
+        db?.insert(TABLE_DETAILS, null, book12)
+
+        val book13 = ContentValues().apply {
+            put(KEY_TITLE, "The Silence of the Lambs")
+            put(KEY_AUTHOR, "Thomas Harris")
+            put(KEY_CATEGORY_ID_FK, getCategoryID("Crime", db))
+            put(KEY_RATING, "4.9/5")
+            put(KEY_PRICE, "PHP 800")
+            put(KEY_DESCRIPTION,"\"The Silence of the Lambs\" by Thomas Harris is a gripping psychological thriller that introduces readers to FBI trainee Clarice Starling and the brilliant, but insane, Dr. Hannibal Lecter. Starling seeks Lecter's help in solving a case involving a serial killer, leading to a chilling cat-and-mouse game. Harris's masterful storytelling and complex characters make this novel a classic in the crime genre.")
+            put(KEY_IMAGE_SOURCE, "drawable/book13")
+            put(KEY_ADD_TO_LIBRARY, 0)
+            put(KEY_ADD_TO_FAVE, 0)
+        }
+        db?.insert(TABLE_DETAILS, null, book13)
+
+        val book14 = ContentValues().apply {
+            put(KEY_TITLE, "IT")
+            put(KEY_AUTHOR, "Stephen King")
+            put(KEY_CATEGORY_ID_FK, getCategoryID("Horror", db))
+            put(KEY_RATING, "4.3/5")
+            put(KEY_PRICE, "PHP 800")
+            put(KEY_DESCRIPTION,"\"IT\" by Stephen King is a chilling horror novel that follows a group of friends in the town of Derry as they confront a malevolent entity that takes the form of Pennywise the Dancing Clown. King weaves a tale of childhood fears, friendship, and the enduring power of evil.")
+            put(KEY_IMAGE_SOURCE, "drawable/book14")
+            put(KEY_ADD_TO_LIBRARY, 0)
+            put(KEY_ADD_TO_FAVE, 0)
+        }
+        db?.insert(TABLE_DETAILS, null, book14)
+
+        val book15 = ContentValues().apply {
+            put(KEY_TITLE, "Neuromancer")
+            put(KEY_AUTHOR, "William Gibson")
+            put(KEY_CATEGORY_ID_FK, getCategoryID("Sc-fi", db))
+            put(KEY_RATING, "4.2/5")
+            put(KEY_PRICE, "PHP 780")
+            put(KEY_DESCRIPTION, "\"Neuromancer\" by William Gibson is a groundbreaking science fiction novel that introduces readers to the concept of cyberspace. Case, a washed-up computer hacker, is hired for one last job that leads him into a world of artificial intelligence and corporate espionage. Gibson's visionary storytelling has had a profound influence on the cyberpunk genre.")
+            put(KEY_IMAGE_SOURCE, "drawable/book15")
+            put(KEY_ADD_TO_LIBRARY, 0)
+            put(KEY_ADD_TO_FAVE, 0)
+        }
+        db?.insert(TABLE_DETAILS, null, book15)
+
+        val book16 = ContentValues().apply {
+            put(KEY_TITLE, "To Kill a Mockingbird")
+            put(KEY_AUTHOR, "Harper Lee")
+            put(KEY_CATEGORY_ID_FK, getCategoryID("Drama", db))
+            put(KEY_RATING, "4.6/5")
+            put(KEY_PRICE, "PHP 870")
+            put(KEY_DESCRIPTION, "\"To Kill a Mockingbird\" by Harper Lee is a classic drama set in the racially charged American South. Through the eyes of Scout Finch, the novel explores themes of racial injustice, morality, and compassion. Lee's poignant narrative and unforgettable characters make this a timeless work.")
+            put(KEY_IMAGE_SOURCE, "drawable/book16")
+            put(KEY_ADD_TO_LIBRARY, 0)
+            put(KEY_ADD_TO_FAVE, 0)
+        }
+        db?.insert(TABLE_DETAILS, null, book16)
+
+        val book17 = ContentValues().apply {
+            put(KEY_TITLE, "Astrophysics for People in a Hurry")
+            put(KEY_AUTHOR, "Neil deGrasse Tyson")
+            put(KEY_CATEGORY_ID_FK, getCategoryID("Non-Fiction", db))
+            put(KEY_RATING, "4.5/5")
+            put(KEY_PRICE, "PHP 750")
+            put(KEY_DESCRIPTION, "\"Astrophysics for People in a Hurry\" by Neil deGrasse Tyson is a concise journey through the cosmos for those with a busy schedule. Tyson breaks down complex astrophysical concepts into bite-sized explanations, making the wonders of the universe accessible to all. Whether you're a novice or a science enthusiast, this book promises to expand your cosmic perspective in an engaging and digestible way.")
+            put(KEY_IMAGE_SOURCE, "drawable/book17")
+            put(KEY_ADD_TO_LIBRARY, 0)
+            put(KEY_ADD_TO_FAVE, 0)
+        }
+        db?.insert(TABLE_DETAILS, null, book17)
+
+        val book18 = ContentValues().apply {
+            put(KEY_TITLE, "Jane Eyre")
+            put(KEY_AUTHOR, "Charlotte Brontë")
+            put(KEY_CATEGORY_ID_FK, getCategoryID("Classics", db))
+            put(KEY_RATING, "4.7/5")
+            put(KEY_PRICE, "PHP 650")
+            put(KEY_DESCRIPTION, "\"Jane Eyre\" by Charlotte Brontë is a classic novel that tells the story of the orphaned and mistreated Jane as she rises above societal expectations...")
+            put(KEY_IMAGE_SOURCE, "drawable/book18")
+            put(KEY_ADD_TO_LIBRARY, 0)
+            put(KEY_ADD_TO_FAVE, 0)
+        }
+        db?.insert(TABLE_DETAILS, null, book18)
+
+        val book19 = ContentValues().apply {
+            put(KEY_TITLE, "A Game of Thrones")
+            put(KEY_AUTHOR, "George R.R. Martin")
+            put(KEY_CATEGORY_ID_FK, getCategoryID("Fantasy", db))
+            put(KEY_RATING, "4.6/5")
+            put(KEY_PRICE, "PHP 780")
+            put(KEY_DESCRIPTION, "\"A Game of Thrones\" by George R.R. Martin is the first book in the epic fantasy series \"A Song of Ice and Fire.\" The novel introduces readers to the complex and morally ambiguous world of Westeros...")
+            put(KEY_IMAGE_SOURCE, "drawable/book19")
+            put(KEY_ADD_TO_LIBRARY, 0)
+            put(KEY_ADD_TO_FAVE, 0)
+        }
+        db?.insert(TABLE_DETAILS, null, book19)
+
+        val book20 = ContentValues().apply {
+            put(KEY_TITLE, "To All the Boys I've Loved Before")
+            put(KEY_AUTHOR, "Jenny Han")
+            put(KEY_CATEGORY_ID_FK, getCategoryID("Young Adult", db))
+            put(KEY_RATING, "4.4/5")
+            put(KEY_PRICE, "PHP 650")
+            put(KEY_DESCRIPTION, "\"To All the Boys I've Loved Before\" by Jenny Han is a charming young adult romance that follows Lara Jean Covey as her secret love letters are accidentally sent to her past crushes. The novel explores themes of identity, family, and first love. Han's delightful storytelling has made this book a favorite among young adult readers.")
+            put(KEY_IMAGE_SOURCE, "drawable/book20")
+            put(KEY_ADD_TO_LIBRARY, 0)
+            put(KEY_ADD_TO_FAVE, 0)
+        }
+        db?.insert(TABLE_DETAILS, null, book20)
+
+
+        val book21 = ContentValues().apply {
+            put(KEY_TITLE, "Gone Girl")
+            put(KEY_AUTHOR, "Gillian Flynn")
+            put(KEY_CATEGORY_ID_FK, getCategoryID("Crime", db))
+            put(KEY_RATING, "4.2/5")
+            put(KEY_PRICE, "PHP 780")
+            put(KEY_DESCRIPTION,"\"Gone Girl\" by Gillian Flynn is a gripping crime thriller that explores the complexities of marriage and deception. When Amy Dunne goes missing on her fifth wedding anniversary, suspicion falls on her husband Nick. As the mystery unravels, Flynn crafts a psychological thriller filled with twists and turns that keep readers on the edge of their seats.")
+            put(KEY_IMAGE_SOURCE, "drawable/book21")
+            put(KEY_ADD_TO_LIBRARY, 0)
+            put(KEY_ADD_TO_FAVE, 0)
+        }
+        db?.insert(TABLE_DETAILS, null, book21)
+
+        val book22 = ContentValues().apply {
+            put(KEY_TITLE, "The Exorcist")
+            put(KEY_AUTHOR, "William Peter Blatty")
+            put(KEY_CATEGORY_ID_FK, getCategoryID("Horror", db))
+            put(KEY_RATING, "4.1/5")
+            put(KEY_PRICE, "PHP 750")
+            put(KEY_DESCRIPTION,"\"The Exorcist\" by William Peter Blatty is a classic horror novel that tells the story of a young girl, Regan, who becomes possessed by a demonic force. As her mother seeks help from priests, a battle between good and evil unfolds. Blatty's gripping narrative and exploration of faith make this a terrifying yet thought-provoking read.")
+            put(KEY_IMAGE_SOURCE, "drawable/book22")
+            put(KEY_ADD_TO_LIBRARY, 0)
+            put(KEY_ADD_TO_FAVE, 0)
+        }
+        db?.insert(TABLE_DETAILS, null, book22)
+
+        val book23 = ContentValues().apply {
+            put(KEY_TITLE, "Snow Crash")
+            put(KEY_AUTHOR, "Neal Stephenson")
+            put(KEY_CATEGORY_ID_FK, getCategoryID("Sci-Fi", db))
+            put(KEY_RATING, "4.1/5")
+            put(KEY_PRICE, "PHP 760")
+            put(KEY_DESCRIPTION, "\"Snow Crash\" by Neal Stephenson is a fast-paced science fiction novel set in a near-future America. The story follows Hiro Protagonist, a hacker and pizza delivery driver, as he unravels a conspiracy involving a virtual drug called Snow Crash. Stephenson combines satire and action in this cyberpunk classic.")
+            put(KEY_IMAGE_SOURCE, "drawable/book23")
+            put(KEY_ADD_TO_LIBRARY, 0)
+            put(KEY_ADD_TO_FAVE, 0)
+        }
+        db?.insert(TABLE_DETAILS, null, book23)
+
+        val book24 = ContentValues().apply {
+            put(KEY_TITLE, "The Glass Menagerie")
+            put(KEY_AUTHOR, "Tennessee Williams")
+            put(KEY_CATEGORY_ID_FK, getCategoryID("Drama", db))
+            put(KEY_RATING, "4.4/5")
+            put(KEY_PRICE, "PHP 830")
+            put(KEY_DESCRIPTION, "\"The Glass Menagerie\" by Tennessee Williams is a poignant drama that delves into the lives of the Wingfield family. Focused on the dreams and struggles of each family member, the play explores themes of memory, illusion, and the search for identity. Williams' evocative language brings the characters to life on the stage.")
+            put(KEY_IMAGE_SOURCE, "drawable/book24")
+            put(KEY_ADD_TO_LIBRARY, 0)
+            put(KEY_ADD_TO_FAVE, 0)
+        }
+        db?.insert(TABLE_DETAILS, null, book24)
+
+        val book25 = ContentValues().apply {
+            put(KEY_TITLE, "Factfulness: Ten Reasons We're Wrong About the World – and Why Things Are Better Than You Think")
+            put(KEY_AUTHOR, "Hans Rosling, Ola Rosling, Anna Rosling Rönnlund")
+            put(KEY_CATEGORY_ID_FK, getCategoryID("Non-Fiction", db))
+            put(KEY_RATING, "4.8/5")
+            put(KEY_PRICE, "PHP 900")
+            put(KEY_DESCRIPTION, "\"Factfulness\" by Hans Rosling, Ola Rosling, and Anna Rosling Rönnlund challenges common misconceptions about the state of the world...")
+            put(KEY_IMAGE_SOURCE, "drawable/book25")
+            put(KEY_ADD_TO_LIBRARY, 0)
+            put(KEY_ADD_TO_FAVE, 0)
+        }
+        db?.insert(TABLE_DETAILS, null, book25)
+
+        val book26 = ContentValues().apply {
+            put(KEY_TITLE, "Moby-Dick")
+            put(KEY_AUTHOR, "Herman Melville")
+            put(KEY_CATEGORY_ID_FK, getCategoryID("Classics", db))
+            put(KEY_RATING, "4.5/5")
+            put(KEY_PRICE, "PHP 700")
+            put(KEY_DESCRIPTION, "\"Moby-Dick\" by Herman Melville is an epic tale that follows Captain Ahab's obsessive quest for revenge against the elusive white whale, Moby Dick...")
+            put(KEY_IMAGE_SOURCE, "drawable/book26")
+            put(KEY_ADD_TO_LIBRARY, 0)
+            put(KEY_ADD_TO_FAVE, 0)
+        }
+        db?.insert(TABLE_DETAILS, null, book26)
+
+        val book27 = ContentValues().apply {
+            put(KEY_TITLE, "The Fellowship of the Ring")
+            put(KEY_AUTHOR, "J.R.R. Tolkien")
+            put(KEY_CATEGORY_ID_FK, getCategoryID("Fantasy", db))
+            put(KEY_RATING, "4.9/5")
+            put(KEY_PRICE, "PHP 800")
+            put(KEY_DESCRIPTION, "\"The Fellowship of the Ring\" by J.R.R. Tolkien is the first volume in \"The Lord of the Rings\" trilogy...")
+            put(KEY_IMAGE_SOURCE, "drawable/book27")
+            put(KEY_ADD_TO_LIBRARY, 0)
+            put(KEY_ADD_TO_FAVE, 0)
+        }
+        db?.insert(TABLE_DETAILS, null, book27)
+
+        val book28 = ContentValues().apply {
+            put(KEY_TITLE, "Divergent")
+            put(KEY_AUTHOR, "Veronica Roth")
+            put(KEY_CATEGORY_ID_FK, getCategoryID("Young Adult", db))
+            put(KEY_RATING, "4.3/5")
+            put(KEY_PRICE, "PHP 700")
+            put(KEY_DESCRIPTION, "\"Divergent\" by Veronica Roth is a thrilling young adult novel set in a dystopian world divided into factions based on personality traits. Protagonist Tris Prior discovers she is Divergent, defying categorization, and becomes entangled in a dangerous conspiracy. Roth's action-packed narrative and exploration of identity make this book a compelling read.")
+            put(KEY_IMAGE_SOURCE, "drawable/book28")
+            put(KEY_ADD_TO_LIBRARY, 0)
+            put(KEY_ADD_TO_FAVE, 0)
+        }
+        db?.insert(TABLE_DETAILS, null, book28)
+
+
+        val book29 = ContentValues().apply {
+            put(KEY_TITLE, "The Da Vinci Code")
+            put(KEY_AUTHOR, "Dan Brown")
+            put(KEY_CATEGORY_ID_FK, getCategoryID("Crime", db))
+            put(KEY_RATING, "4.0/5")
+            put(KEY_PRICE, "PHP 750")
+            put(KEY_DESCRIPTION,"\"The Da Vinci Code\" by Dan Brown is a bestselling crime mystery that follows symbologist Robert Langdon and cryptologist Sophie Neveu as they unravel a series of ancient mysteries and uncover a secret that could shake the foundations of Christianity. Brown's fast-paced narrative and cryptic puzzles make this book a thrilling ride.")
+            put(KEY_IMAGE_SOURCE, "drawable/book29")
+            put(KEY_ADD_TO_LIBRARY, 0)
+            put(KEY_ADD_TO_FAVE, 0)
+        }
+        db?.insert(TABLE_DETAILS, null, book29)
+
+        val book30 = ContentValues().apply {
+            put(KEY_TITLE, "Bird Box")
+            put(KEY_AUTHOR, "Josh Malerman")
+            put(KEY_CATEGORY_ID_FK, getCategoryID("Horror", db))
+            put(KEY_RATING, "4.0/5")
+            put(KEY_PRICE, "PHP 720")
+            put(KEY_DESCRIPTION, "\"Bird Box\" by Josh Malerman is a psychological horror novel set in a world where supernatural entities cause people who see them to go insane and commit suicide. The story follows Malorie, who must navigate the perilous journey blindfolded to survive. Malerman's suspenseful storytelling keeps readers on the edge of their seats.")
+            put(KEY_IMAGE_SOURCE, "drawable/book30")
+            put(KEY_ADD_TO_LIBRARY, 0)
+            put(KEY_ADD_TO_FAVE, 0)
+        }
+        db?.insert(TABLE_DETAILS, null, book30)
+        val book31 = ContentValues().apply {
+            put(KEY_TITLE, "The Left Hand of Darkness")
+            put(KEY_AUTHOR, "Ursula K. Le Guin")
+            put(KEY_CATEGORY_ID_FK, getCategoryID("Sci-Fi", db))
+            put(KEY_RATING, "4.3/5")
+            put(KEY_PRICE, "PHP 800")
+            put(KEY_DESCRIPTION, "\"The Left Hand of Darkness\" by Ursula K. Le Guin is a thought-provoking science fiction novel that explores themes of gender and politics. Sent as an envoy to a distant planet, Genly Ai encounters a society with fluid gender identities. Le Guin's world-building and social commentary make this a seminal work in science fiction.")
+            put(KEY_IMAGE_SOURCE, "drawable/book31")
+            put(KEY_ADD_TO_LIBRARY, 0)
+            put(KEY_ADD_TO_FAVE, 0)
+        }
+        db?.insert(TABLE_DETAILS, null, book31)
+
+        val book32 = ContentValues().apply {
+            put(KEY_TITLE, "A Thousand Splendid Suns")
+            put(KEY_AUTHOR, "Khaled Hosseini")
+            put(KEY_CATEGORY_ID_FK, getCategoryID("Drama", db))
+            put(KEY_RATING, "4.7/5")
+            put(KEY_PRICE, "PHP 880")
+            put(KEY_DESCRIPTION, "\"A Thousand Splendid Suns\" by Khaled Hosseini is a moving drama that portrays the lives of two Afghan women, Mariam and Laila, against the backdrop of political upheaval. The novel explores themes of friendship, sacrifice, and the resilience of the human spirit. Hosseini's rich storytelling captures the complexities of human relationships.")
+            put(KEY_IMAGE_SOURCE, "drawable/book32")
+            put(KEY_ADD_TO_LIBRARY, 0)
+            put(KEY_ADD_TO_FAVE, 0)
+        }
+        db?.insert(TABLE_DETAILS, null, book32)
+
+        val book33 = ContentValues().apply {
+            put(KEY_TITLE, "Thinking, Fast and Slow")
+            put(KEY_AUTHOR, "Daniel Kahneman")
+            put(KEY_CATEGORY_ID_FK, getCategoryID("Non-Fiction", db))
+            put(KEY_RATING, "4.6/5")
+            put(KEY_PRICE, "PHP 850")
+            put(KEY_DESCRIPTION, "\"Thinking, Fast and Slow\" by Daniel Kahneman explores the two systems that drive the way we think: the fast, intuitive, and emotional system, and the slow, deliberate, and logical system...")
+            put(KEY_IMAGE_SOURCE, "drawable/book33")
+            put(KEY_ADD_TO_LIBRARY, 0)
+            put(KEY_ADD_TO_FAVE, 0)
+        }
+        db?.insert(TABLE_DETAILS, null, book33)
+
+        val book34 = ContentValues().apply {
+            put(KEY_TITLE, "Wuthering Heights")
+            put(KEY_AUTHOR, "Emily Brontë")
+            put(KEY_CATEGORY_ID_FK, getCategoryID("Classics", db))
+            put(KEY_RATING, "4.6/5")
+            put(KEY_PRICE, "PHP 680")
+            put(KEY_DESCRIPTION, "\"Wuthering Heights\" by Emily Brontë is a dark and passionate novel that unfolds the tragic love story of Heathcliff and Catherine Earnshaw...")
+            put(KEY_IMAGE_SOURCE, "drawable/book34")
+            put(KEY_ADD_TO_LIBRARY, 0)
+            put(KEY_ADD_TO_FAVE, 0)
+        }
+        db?.insert(TABLE_DETAILS, null, book34)
+
+        val book35 = ContentValues().apply {
+            put(KEY_TITLE, "Harry Potter and the Sorcerer's Stone")
+            put(KEY_AUTHOR, "J.K. Rowling")
+            put(KEY_CATEGORY_ID_FK, getCategoryID("Fantasy", db))
+            put(KEY_RATING, "4.7/5")
+            put(KEY_PRICE, "PHP 750")
+            put(KEY_DESCRIPTION, "\"Harry Potter and the Sorcerer's Stone\" by J.K. Rowling introduces readers to the magical world of Hogwarts and the young wizard Harry Potter. As Harry navigates his first year at Hogwarts, he uncovers the mysteries of his past and confronts the dark wizard Voldemort. Rowling's enchanting narrative and imaginative world-building make the \"Harry Potter\" series a beloved fantasy phenomenon.")
+            put(KEY_IMAGE_SOURCE, "drawable/book35")
+            put(KEY_ADD_TO_LIBRARY, 0)
+            put(KEY_ADD_TO_FAVE, 0)
+        }
+        db?.insert(TABLE_DETAILS, null, book35)
+
+        val book36 = ContentValues().apply {
+            put(KEY_TITLE, "The Perks of Being a Wallflower")
+            put(KEY_AUTHOR, "Stephen Chbosky")
+            put(KEY_CATEGORY_ID_FK, getCategoryID("Young Adult", db))
+            put(KEY_RATING, "4.2/5")
+            put(KEY_PRICE, "PHP 670")
+            put(KEY_DESCRIPTION, "\"The Perks of Being a Wallflower\" by Stephen Chbosky is a coming-of-age young adult novel that follows the experiences of Charlie, an introverted high school freshman. Through letters to an anonymous friend, Charlie navigates the challenges of adolescence, friendship, and self-discovery. Chbosky's sensitive portrayal of teenage life resonates with readers.")
+            put(KEY_IMAGE_SOURCE, "drawable/book36")
+            put(KEY_ADD_TO_LIBRARY, 0)
+            put(KEY_ADD_TO_FAVE, 0)
+        }
+        db?.insert(TABLE_DETAILS, null, book36)
+
+
+        val book37 = ContentValues().apply {
+            put(KEY_TITLE, "The Girl on the Train")
+            put(KEY_AUTHOR, "Paula Hawkins")
+            put(KEY_CATEGORY_ID_FK, getCategoryID("Crime", db))
+            put(KEY_RATING, "4.1/5")
+            put(KEY_PRICE, "PHP 770")
+            put(KEY_DESCRIPTION,"\"The Girl on the Train\" by Paula Hawkins is a compelling crime thriller that follows the intertwined lives of three women. As the story unfolds through their perspectives, secrets and lies come to light, leading to a suspenseful and thrilling narrative.")
+            put(KEY_IMAGE_SOURCE, "drawable/book37")
+            put(KEY_ADD_TO_LIBRARY, 0)
+            put(KEY_ADD_TO_FAVE, 0)
+        }
+        db?.insert(TABLE_DETAILS, null, book37)
+
+        val book38 = ContentValues().apply {
+            put(KEY_TITLE, "House of Leaves")
+            put(KEY_AUTHOR, "Mark Z. Danielewski")
+            put(KEY_CATEGORY_ID_FK, getCategoryID("Horror", db))
+            put(KEY_RATING, "4.2/5")
+            put(KEY_PRICE, "PHP 780")
+            put(KEY_DESCRIPTION, "\"House of Leaves\" by Mark Z. Danielewski is a unique and unsettling horror novel that presents a labyrinthine narrative through multiple layers of storytelling. As a young family discovers unusual dimensions within their new home, the novel explores the psychological horror of the unknown. Danielewski's experimental style adds to the eerie atmosphere.")
+            put(KEY_IMAGE_SOURCE, "drawable/book38")
+            put(KEY_ADD_TO_LIBRARY, 0)
+            put(KEY_ADD_TO_FAVE, 0)
+        }
+        db?.insert(TABLE_DETAILS, null, book38)
+
+        val book39 = ContentValues().apply {
+            put(KEY_TITLE, "Hyperion")
+            put(KEY_AUTHOR, "Dan Simmons")
+            put(KEY_CATEGORY_ID_FK, getCategoryID("Sci-Fi", db))
+            put(KEY_RATING, "4.4/5")
+            put(KEY_PRICE, "PHP 820")
+            put(KEY_DESCRIPTION, "\"Hyperion\" by Dan Simmons is the first book in the Hyperion Cantos series, a space opera that weaves together multiple narratives. Seven pilgrims on a distant planet share their stories, revealing a universe on the brink of war. Simmons blends science fiction, mythology, and philosophy in this epic tale.")
+            put(KEY_IMAGE_SOURCE, "drawable/book39")
+            put(KEY_ADD_TO_LIBRARY, 0)
+            put(KEY_ADD_TO_FAVE, 0)
+        }
+        db?.insert(TABLE_DETAILS, null, book39)
+
+        val book40 = ContentValues().apply {
+            put(KEY_TITLE, "The Great Gatsby")
+            put(KEY_AUTHOR, "F. Scott Fitzgerald")
+            put(KEY_CATEGORY_ID_FK, getCategoryID("Drama", db))
+            put(KEY_RATING, "4.8/5")
+            put(KEY_PRICE, "PHP 890")
+            put(KEY_DESCRIPTION, "\"The Great Gatsby\" by F. Scott Fitzgerald is a classic drama set in the Roaring Twenties. The novel follows the mysterious Jay Gatsby and his pursuit of wealth and love, as narrated by Nick Carraway. Fitzgerald's exploration of the American Dream, decadence, and disillusionment makes this novel a timeless examination of society and human nature.")
+            put(KEY_IMAGE_SOURCE, "drawable/book40")
+            put(KEY_ADD_TO_LIBRARY, 0)
+            put(KEY_ADD_TO_FAVE, 0)
+        }
+        db?.insert(TABLE_DETAILS, null, book40)
+
+        val book41 = ContentValues().apply {
+            put(KEY_TITLE, "Educated")
+            put(KEY_AUTHOR, "Tara Westover")
+            put(KEY_CATEGORY_ID_FK, getCategoryID("Non-Fiction", db))
+            put(KEY_RATING, "4.5/5")
+            put(KEY_PRICE, "PHP 950")
+            put(KEY_DESCRIPTION, "\"Educated\" by Tara Westover is a memoir that recounts the author's journey from growing up in a strict and abusive household in rural Idaho to eventually earning a PhD from Cambridge University. The book explores themes of education, resilience, and the pursuit of knowledge against all odds.")
+            put(KEY_IMAGE_SOURCE, "drawable/book41")
+            put(KEY_ADD_TO_LIBRARY, 0)
+            put(KEY_ADD_TO_FAVE, 0)
+        }
+        db?.insert(TABLE_DETAILS, null, book41)
+
+        val book42 = ContentValues().apply {
+            put(KEY_TITLE, "1984")
+            put(KEY_AUTHOR, "George Orwell")
+            put(KEY_CATEGORY_ID_FK, getCategoryID("Classics", db))
+            put(KEY_RATING, "4.7/5")
+            put(KEY_PRICE, "PHP 850")
+            put(KEY_DESCRIPTION, "George Orwell's \"1984\" is a dystopian novel that explores the dangers of totalitarianism and the consequences of a society under constant surveillance. It remains a powerful commentary on political oppression, censorship, and the struggle for individual freedom.")
+            put(KEY_IMAGE_SOURCE, "drawable/book42")
+            put(KEY_ADD_TO_LIBRARY, 0)
+            put(KEY_ADD_TO_FAVE, 0)
+        }
+        db?.insert(TABLE_DETAILS, null, book42)
+
+        val book43 = ContentValues().apply {
+            put(KEY_TITLE, "The Lies of Locke Lamora")
+            put(KEY_AUTHOR, "Scott Lynch")
+            put(KEY_CATEGORY_ID_FK, getCategoryID("Fantasy", db))
+            put(KEY_RATING, "4.3/5")
+            put(KEY_PRICE, "PHP 830")
+            put(KEY_DESCRIPTION, "\"The Lies of Locke Lamora\" by Scott Lynch is a fantasy novel that follows the exploits of a skilled group of con artists led by the charismatic Locke Lamora. Set in the city of Camorr, the novel combines intricate heists, political intrigue, and a richly detailed world, making it a thrilling and engaging read.")
+            put(KEY_IMAGE_SOURCE, "drawable/book43")
+            put(KEY_ADD_TO_LIBRARY, 0)
+            put(KEY_ADD_TO_FAVE, 0)
+        }
+        db?.insert(TABLE_DETAILS, null, book43)
+
+        val book44 = ContentValues().apply {
+            put(KEY_TITLE, "Simon vs. the Homo Sapiens Agenda")
+            put(KEY_AUTHOR, "Becky Albertalli")
+            put(KEY_CATEGORY_ID_FK, getCategoryID("Young Adult", db))
+            put(KEY_RATING, "4.4/5")
+            put(KEY_PRICE, "PHP 720")
+            put(KEY_DESCRIPTION, "\"Simon vs. the Homo Sapiens Agenda\" by Becky Albertalli is a heartwarming young adult novel that follows Simon Spier, a high school junior, as he navigates love, friendship, and coming out. The book explores themes of identity, acceptance, and the importance of being true to oneself.")
+            put(KEY_IMAGE_SOURCE, "drawable/book44")
+            put(KEY_ADD_TO_LIBRARY, 0)
+            put(KEY_ADD_TO_FAVE, 0)
+        }
+        db?.insert(TABLE_DETAILS, null, book44)
+
+        val book45 = ContentValues().apply {
+            put(KEY_TITLE, "In the Woods")
+            put(KEY_AUTHOR, "Tana French")
+            put(KEY_CATEGORY_ID_FK, getCategoryID("Crime", db))
+            put(KEY_RATING, "4.0/5")
+            put(KEY_PRICE, "PHP 740")
+            put(KEY_DESCRIPTION, "Tana French's \"In the Woods\" is a gripping crime novel featuring detective Rob Ryan. When a young girl is found murdered in a Dublin suburb, Ryan and his partner investigate, uncovering connections to Ryan's own troubled past. The novel explores psychological complexity and the impact of unresolved mysteries.")
+            put(KEY_IMAGE_SOURCE, "drawable/book45")
+            put(KEY_ADD_TO_LIBRARY, 0)
+            put(KEY_ADD_TO_FAVE, 0)
+        }
+        db?.insert(TABLE_DETAILS, null, book45)
+
+        val book46 = ContentValues().apply {
+            put(KEY_TITLE, "Pet Sematary")
+            put(KEY_AUTHOR, "Stephen King")
+            put(KEY_CATEGORY_ID_FK, getCategoryID("Horror", db))
+            put(KEY_RATING, "4.2/5")
+            put(KEY_PRICE, "PHP 790")
+            put(KEY_DESCRIPTION, "Stephen King's \"Pet Sematary\" is a chilling horror novel that explores the dark side of grief and loss. When a family moves to a rural town, they discover a mysterious burial ground with the power to bring the dead back to life. King delves into the consequences of tampering with the natural order.")
+            put(KEY_IMAGE_SOURCE, "drawable/book46")
+            put(KEY_ADD_TO_LIBRARY, 0)
+            put(KEY_ADD_TO_FAVE, 0)
+        }
+        db?.insert(TABLE_DETAILS, null, book46)
+
+        val book47 = ContentValues().apply {
+            put(KEY_TITLE, "Ender's Game")
+            put(KEY_AUTHOR, "Orson Scott Card")
+            put(KEY_CATEGORY_ID_FK, getCategoryID("Sci-Fi", db))
+            put(KEY_RATING, "4.3/5")
+            put(KEY_PRICE, "PHP 810")
+            put(KEY_DESCRIPTION, "Orson Scott Card's \"Ender's Game\" is a classic science fiction novel set in a future where gifted children are trained to lead Earth's defense against an alien threat. The story follows Ender Wiggin as he undergoes rigorous training in a military.")
+            put(KEY_IMAGE_SOURCE, "drawable/book47")
+            put(KEY_ADD_TO_LIBRARY, 0)
+            put(KEY_ADD_TO_FAVE, 0)
+        }
+        db?.insert(TABLE_DETAILS, null, book47)
+
+        val book48 = ContentValues().apply {
+            put(KEY_TITLE, "The Road")
+            put(KEY_AUTHOR, "Cormac McCarthy")
+            put(KEY_CATEGORY_ID_FK, getCategoryID("Drama", db))
+            put(KEY_RATING, "4.2/5")
+            put(KEY_PRICE, "PHP 800")
+            put(KEY_DESCRIPTION, "Cormac McCarthy's \"The Road\" is a post-apocalyptic novel that follows a father and son's journey across a desolate landscape. As they navigate the harsh realities of survival, the novel explores themes of hope, morality, and the enduring bond between parent and child.")
+            put(KEY_IMAGE_SOURCE, "drawable/book48")
+            put(KEY_ADD_TO_LIBRARY, 0)
+            put(KEY_ADD_TO_FAVE, 0)
+        }
+        db?.insert(TABLE_DETAILS, null, book48)
+
+        val book49 = ContentValues().apply {
+            put(KEY_TITLE, "The Immortal Life of Henrietta Lacks")
+            put(KEY_AUTHOR, "Rebecca Skloot")
+            put(KEY_CATEGORY_ID_FK, getCategoryID("Non-Fiction", db))
+            put(KEY_RATING, "4.2/5")
+            put(KEY_PRICE, "PHP 880")
+            put(KEY_DESCRIPTION, "\"The Immortal Life of Henrietta Lacks\" by Rebecca Skloot tells the true story of Henrietta Lacks, whose cells were taken without her knowledge in 1951 and became one of the most important tools in medicine, leading to numerous scientific breakthroughs. The book explores ethical questions surrounding medical research and the impact on Henrietta's family.")
+            put(KEY_IMAGE_SOURCE, "drawable/book49")
+            put(KEY_ADD_TO_LIBRARY, 0)
+            put(KEY_ADD_TO_FAVE, 0)
+        }
+        db?.insert(TABLE_DETAILS, null, book49)
+
+        val book50 = ContentValues().apply {
+            put(KEY_TITLE, "The Catcher in the Rye")
+            put(KEY_AUTHOR, "J.D. Salinger")
+            put(KEY_CATEGORY_ID_FK, getCategoryID("Classics", db))
+            put(KEY_RATING, "4.3/5")
+            put(KEY_PRICE, "PHP 780")
+            put(KEY_DESCRIPTION, "J.D. Salinger's \"The Catcher in the Rye\" is a coming-of-age novel that follows the experiences of Holden Caulfield, a disenchanted teenager navigating the challenges of adolescence and adulthood. The novel is known for its exploration of alienation, identity, and societal expectations.")
+            put(KEY_IMAGE_SOURCE, "drawable/book50")
+            put(KEY_ADD_TO_LIBRARY, 0)
+            put(KEY_ADD_TO_FAVE, 0)
+        }
+        db?.insert(TABLE_DETAILS, null, book50)
+
+        val book51 = ContentValues().apply {
+            put(KEY_TITLE, "The Way of Kings")
+            put(KEY_AUTHOR, "Brandon Sanderson")
+            put(KEY_CATEGORY_ID_FK, getCategoryID("Fantasy", db))
+            put(KEY_RATING, "4.6/5")
+            put(KEY_PRICE, "PHP 850")
+            put(KEY_DESCRIPTION, "Brandon Sanderson's \"The Way of Kings\" is the first book in the Stormlight Archive series. The epic fantasy novel introduces readers to the world of Roshar, where magical storms shape the land and political intrigue unfolds. Sanderson's masterful storytelling and intricate plot make this a must-read for fantasy enthusiasts.")
+            put(KEY_IMAGE_SOURCE, "drawable/book51")
+            put(KEY_ADD_TO_LIBRARY, 0)
+            put(KEY_ADD_TO_FAVE, 0)
+        }
+        db?.insert(TABLE_DETAILS, null, book51)
+
+        val book52 = ContentValues().apply {
+            put(KEY_TITLE, "The Maze Runner")
+            put(KEY_AUTHOR, "James Dashner")
+            put(KEY_CATEGORY_ID_FK, getCategoryID("Young Adult", db))
+            put(KEY_RATING, "4.1/5")
+            put(KEY_PRICE, "PHP 690")
+            put(KEY_DESCRIPTION, "James Dashner's \"The Maze Runner\" is a thrilling young adult science fiction novel. The story revolves around a group of teenagers who wake up in a mysterious maze with no memory of how they got there. As they work together to solve the maze's puzzles, they uncover dark secrets about their predicament.")
+            put(KEY_IMAGE_SOURCE, "drawable/book52")
+            put(KEY_ADD_TO_LIBRARY, 0)
+            put(KEY_ADD_TO_FAVE, 0)
+        }
+        db?.insert(TABLE_DETAILS, null, book52)
+
+        val book53 = ContentValues().apply {
+            put(KEY_TITLE, "Mystic River")
+            put(KEY_AUTHOR, "Dennis Lehane")
+            put(KEY_CATEGORY_ID_FK, getCategoryID("Crime", db))
+            put(KEY_RATING, "4.2/5")
+            put(KEY_PRICE, "PHP 770")
+            put(KEY_DESCRIPTION, "\"Mystic River\" by Dennis Lehane is a gripping crime novel that explores the lives of three childhood friends whose paths diverge after a traumatic event. When tragedy strikes again years later, their lives become intertwined once more, leading to a complex and suspenseful narrative. Lehane's masterful storytelling and deep exploration of human nature make \"Mystic River\" a compelling crime thriller.")
+            put(KEY_IMAGE_SOURCE, "drawable/book53")
+            put(KEY_ADD_TO_LIBRARY, 0)
+            put(KEY_ADD_TO_FAVE, 0)
+        }
+        db?.insert(TABLE_DETAILS, null, book53)
+
+        val book54 = ContentValues().apply {
+            put(KEY_TITLE, "The Haunting of Hill House")
+            put(KEY_AUTHOR, "Shirley Jackson")
+            put(KEY_CATEGORY_ID_FK, getCategoryID("Horror", db))
+            put(KEY_RATING, "4.0/5")
+            put(KEY_PRICE, "PHP 750")
+            put(KEY_DESCRIPTION, "Shirley Jackson's \"The Haunting of Hill House\" is a classic haunted house tale. A small group of people are invited to stay at the ominous Hill House to investigate paranormal activities. As the supernatural events unfold, the line between reality and the supernatural blurs.")
+            put(KEY_IMAGE_SOURCE, "drawable/book54")
+            put(KEY_ADD_TO_LIBRARY, 0)
+            put(KEY_ADD_TO_FAVE, 0)
+        }
+        db?.insert(TABLE_DETAILS, null, book54)
+
+        val book55 = ContentValues().apply {
+            put(KEY_TITLE, "The Time Machine")
+            put(KEY_AUTHOR, "H.G. Wells")
+            put(KEY_CATEGORY_ID_FK, getCategoryID("Sci-Fi", db))
+            put(KEY_RATING, "4.1/5")
+            put(KEY_PRICE, "PHP 730")
+            put(KEY_DESCRIPTION, "H.G. Wells' \"The Time Machine\" is a foundational work in science fiction. The protagonist invents a machine that allows him to travel through time, experiencing the distant future and witnessing the evolution of humanity. Wells explores themes of time, progress, and societal decay.")
+            put(KEY_IMAGE_SOURCE, "drawable/book55")
+            put(KEY_ADD_TO_LIBRARY, 0)
+            put(KEY_ADD_TO_FAVE, 0)
+        }
+        db?.insert(TABLE_DETAILS, null, book55)
+
+        val book56 = ContentValues().apply {
+            put(KEY_TITLE, "The Joy Luck Club")
+            put(KEY_AUTHOR, "Amy Tan")
+            put(KEY_CATEGORY_ID_FK, getCategoryID("Drama", db))
+            put(KEY_RATING, "4.0/5")
+            put(KEY_PRICE, "PHP 760")
+            put(KEY_DESCRIPTION, "Amy Tan's \"The Joy Luck Club\" is a poignant exploration of Chinese-American identity and intergenerational relationships. The novel weaves together the stories of Chinese immigrant mothers and their American-born daughters, delving into cultural clashes and the complexities of family dynamics.")
+            put(KEY_IMAGE_SOURCE, "drawable/book56")
+            put(KEY_ADD_TO_LIBRARY, 0)
+            put(KEY_ADD_TO_FAVE, 0)
+        }
+        db?.insert(TABLE_DETAILS, null, book56)
+
     }
+
+
     @SuppressLint("Range")
     fun getCategoryID(categoryName: String, db: SQLiteDatabase?): Int {
         val selection = "$KEY_CATEGORY_NAME = ?"
