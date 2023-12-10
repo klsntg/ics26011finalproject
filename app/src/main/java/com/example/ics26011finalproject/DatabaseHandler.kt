@@ -974,4 +974,93 @@ class DatabaseHandler (context: Context) : SQLiteOpenHelper (context, DATABASE_N
         db.close()
         return categoryName
     }
+    @SuppressLint("Range")
+    fun getLibraryBooks(): List<Details> {
+        val db = this.readableDatabase
+        val query = "SELECT * FROM $TABLE_DETAILS WHERE $KEY_ADD_TO_LIBRARY = 1"
+
+        val cursor = db.rawQuery(query, null)
+        val libraryBooks = mutableListOf<Details>()
+
+        cursor.use {
+            while (it.moveToNext()) {
+                val book = Details(
+                    it.getInt(it.getColumnIndex(KEY_DETAILS_ID)),
+                    it.getString(it.getColumnIndex(KEY_TITLE)),
+                    it.getString(it.getColumnIndex(KEY_AUTHOR)),
+                    it.getInt(it.getColumnIndex(KEY_CATEGORY_ID_FK)),
+                    it.getString(it.getColumnIndex(KEY_IMAGE_SOURCE)),
+                    it.getString(it.getColumnIndex(KEY_RATING)),
+                    it.getString(it.getColumnIndex(KEY_PRICE)),
+                    it.getString(it.getColumnIndex(KEY_DESCRIPTION)),
+                    it.getInt(it.getColumnIndex(KEY_ADD_TO_LIBRARY)) != 0,
+                    it.getInt(it.getColumnIndex(KEY_ADD_TO_FAVE)) != 0
+                )
+                libraryBooks.add(book)
+            }
+        }
+
+        db.close()
+        return libraryBooks
+    }
+    @SuppressLint("Range")
+    fun addToLibrary(bookId: Int) : Boolean{
+        val db = this.writableDatabase
+
+        val isInLibrary = isBookInLibrary(bookId)
+
+        if (!isInLibrary) {
+            val values = ContentValues()
+            values.put(KEY_ADD_TO_LIBRARY, 1) // Set KEY_ADD_TO_LIBRARY to 1 (true)
+
+            // Update the row with the specified bookId
+            db.update(
+                TABLE_DETAILS,
+                values,
+                "$KEY_DETAILS_ID = ?",
+                arrayOf(bookId.toString())
+            )
+        }
+
+        db.close()
+        return !isInLibrary
+    }
+    @SuppressLint("Range")
+    private fun isBookInLibrary(bookId: Int): Boolean {
+        val db = this.readableDatabase
+        val selection = "$KEY_DETAILS_ID = ? AND $KEY_ADD_TO_LIBRARY = 1"
+        val selectionArgs = arrayOf(bookId.toString())
+        val cursor = db.query(TABLE_DETAILS, null, selection, selectionArgs, null, null, null)
+
+        val isInLibrary = cursor.count > 0
+        cursor.close()
+
+
+        return isInLibrary
+    }
+
+    @SuppressLint("Range")
+    fun removeFromLibrary(bookId: Int): Boolean {
+        val db = this.writableDatabase
+
+        // Check if the book is in the library
+        val isInLibrary = isBookInLibrary(bookId)
+
+        if (isInLibrary) {
+            val values = ContentValues().apply {
+                put(KEY_ADD_TO_LIBRARY, 0) // Set KEY_ADD_TO_LIBRARY back to 0 (false)
+            }
+
+            // Update the row with the specified bookId
+            db.update(
+                TABLE_DETAILS,
+                values,
+                "$KEY_DETAILS_ID = ?",
+                arrayOf(bookId.toString())
+            )
+        }
+
+        db.close()
+        return isInLibrary // Return true if the book was in the library, false otherwise
+    }
 }

@@ -5,8 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import com.bumptech.glide.Glide
 
 class BookDetailsFragment : Fragment() {
@@ -31,6 +33,11 @@ class BookDetailsFragment : Fragment() {
             view.findViewById<TextView>(R.id.tvPrice).text = selectedBook.price
             view.findViewById<TextView>(R.id.tvDescription).text = selectedBook.description
 
+            view.findViewById<Button>(R.id.btnAddtoLibrary).setOnClickListener {
+                // Handle the "Add to Library" button click here
+                addToLibrary(selectedBook)
+            }
+
             // Example using Glide for loading the cover image
             Glide.with(requireContext())
                 .load(getImageResource(selectedBook.imageSource))
@@ -41,7 +48,16 @@ class BookDetailsFragment : Fragment() {
 
         return view
     }
+    private fun addToLibrary(selectedBook: Details) {
+        val addedSuccessfully = DatabaseHandler(requireContext()).addToLibrary(selectedBook.id)
 
+        if (addedSuccessfully) {
+            Toast.makeText(requireContext(), "Book added to Library", Toast.LENGTH_SHORT).show()
+        } else {
+            Toast.makeText(requireContext(), "Book is already in Library", Toast.LENGTH_SHORT).show()
+        }
+
+    }
     private fun getImageResource(imageSource: String): Any {
         return resources.getIdentifier(imageSource, "drawable", requireContext().packageName)
     }
