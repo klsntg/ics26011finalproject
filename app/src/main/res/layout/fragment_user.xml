@@ -15,40 +15,71 @@
        <TextView
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
-           android:paddingTop="10dp"
+           android:paddingTop="20dp"
            android:paddingBottom="50dp"
            android:textSize="50sp"
            android:textColor="@color/black"
            android:textStyle="bold"
+           android:fontFamily="@font/open_sans"
            android:text="@string/user_profile"/>
        <ImageView
            android:id="@+id/imageView2"
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
-           android:paddingBottom="100dp"
+           android:paddingBottom="70dp"
            app:srcCompat="@drawable/account_circle"
            android:importantForAccessibility="no" />
+
+       <TextView
+           android:id="@+id/textViewName"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:fontFamily="@font/open_sans"
+           android:paddingRight="290dp"
+           android:paddingBottom="10dp"
+           android:text="Name"
+           android:textColor="#000000"
+           android:textSize="25sp"
+           android:textStyle="bold" />
+
        <TextView
            android:id="@+id/tvName"
+           android:layout_width="360dp"
+           android:layout_height="wrap_content"
+
+           android:paddingBottom="30dp"
+           android:text="@string/first_name_last_name"
+           android:textSize="25sp" />
+
+       <TextView
+           android:id="@+id/textViewEmail"
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
-           android:paddingBottom="50dp"
+           android:fontFamily="@font/open_sans"
+           android:paddingRight="295dp"
+           android:paddingBottom="10dp"
+           android:text="Email"
+           android:textColor="@color/black"
            android:textSize="25sp"
-           android:text="@string/first_name_last_name"/>
+           android:textStyle="bold" />
+
        <TextView
            android:id="@+id/tvEmail"
-           android:layout_width="wrap_content"
+           android:layout_width="360dp"
            android:layout_height="wrap_content"
-           android:paddingBottom="120dp"
-           android:textSize="25sp"
-           android:text="@string/email"/>
+           android:paddingBottom="40dp"
+           android:text="@string/email"
+           android:textSize="25sp" />
+
        <Button
            android:id="@+id/btnLogout"
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
+           android:layout_width="364dp"
+           android:layout_height="62dp"
            android:backgroundTint="#000000"
            android:text="@string/logout"
-           app:cornerRadius="1dp"/>
+           android:fontFamily="@font/open_sans"
+           android:textSize="30dp"
+           app:cornerRadius="1dp" />
 
    </LinearLayout>
 
