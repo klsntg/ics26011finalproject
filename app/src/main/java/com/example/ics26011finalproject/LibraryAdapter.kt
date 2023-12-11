@@ -9,8 +9,10 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 
-class LibraryAdapter(private val onRemoveClick: (Details) -> Unit, private val onItemClick: (Details) -> Unit) :
-    RecyclerView.Adapter<LibraryAdapter.LibraryViewHolder>() {
+class LibraryAdapter(
+    private val onRemoveClick: (Int) -> Unit,
+    private val onItemClick: (Details) -> Unit
+) : RecyclerView.Adapter<LibraryAdapter.LibraryViewHolder>() {
 
     private var books: List<Details> = emptyList()
 
@@ -26,14 +28,12 @@ class LibraryAdapter(private val onRemoveClick: (Details) -> Unit, private val o
         holder.itemView.setOnClickListener {
             onItemClick(currentBook)
         }
-        // Set click listener for the remove button (ImageButton)
+
+        // Update the function to pass bookId instead of currentBook
         holder.removeButton.setOnClickListener {
-            onRemoveClick(currentBook)
+            onRemoveClick(currentBook.id)
 
-            // Update the database to set KEY_ADD_TO_LIBRARY back to 0
-            DatabaseHandler(holder.itemView.context).removeFromLibrary(currentBook.id)
-
-            // Remove the book from the list and notify the adapter
+            // Your existing code
             books = books.filter { it != currentBook }
             notifyDataSetChanged()
         }

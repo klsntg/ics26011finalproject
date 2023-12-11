@@ -1,5 +1,6 @@
 package com.example.ics26011finalproject
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -20,7 +21,7 @@ class BookDetailsFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_book_details, container, false)
 
         // Retrieve selected book details from arguments
-        val selectedBook = arguments?.getSerializable("selectedBook") as? Details
+        val selectedBook = arguments?.getSerializable("selectedBook") as? Details?
 
         // Check if selectedBook is not null
         if (selectedBook != null) {
@@ -49,14 +50,25 @@ class BookDetailsFragment : Fragment() {
         return view
     }
     private fun addToLibrary(selectedBook: Details) {
-        val addedSuccessfully = DatabaseHandler(requireContext()).addToLibrary(selectedBook.id)
+        val sharedPreferences = requireContext().getSharedPreferences("user_prefs", Context.MODE_PRIVATE)
+
+        // Retrieve the user's email from SharedPreferences
+        val userEmail = sharedPreferences.getString("email_address", "")
+
+
+        if (userEmail.isNullOrBlank()) {
+            // Handle the case where the user email is not available (e.g., user not logged in)
+            Toast.makeText(requireContext(), "User email not available", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        val addedSuccessfully = DatabaseHandler(requireContext()).addToLibrary(userEmail, selectedBook.id)
 
         if (addedSuccessfully) {
             Toast.makeText(requireContext(), "Book added to Library", Toast.LENGTH_SHORT).show()
         } else {
             Toast.makeText(requireContext(), "Book is already in Library", Toast.LENGTH_SHORT).show()
         }
-
     }
     private fun getImageResource(imageSource: String): Any {
         return resources.getIdentifier(imageSource, "drawable", requireContext().packageName)

@@ -1,6 +1,8 @@
 package com.example.ics26011finalproject
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -11,12 +13,15 @@ import android.widget.Toast
 class SignInActivity : AppCompatActivity() {
 
     private lateinit var dbHandler: DatabaseHandler
+    private lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_in)
 
         dbHandler = DatabaseHandler(this)
+        sharedPreferences = getSharedPreferences("user_prefs", Context.MODE_PRIVATE)
+
 
         val btnLogIn = findViewById<Button>(R.id.btnLogIn)
         val tvRegister = findViewById<TextView>(R.id.tvRegister)
@@ -37,6 +42,8 @@ class SignInActivity : AppCompatActivity() {
                     val user = dbHandler.getUserInfo(username)
 
                     if (user != null) {
+                        saveUserEmailToSharedPreferences(user.email)
+
                         Toast.makeText(this, "Login Successful", Toast.LENGTH_LONG).show()
 
                         // Move the intent creation and start here
@@ -73,5 +80,10 @@ class SignInActivity : AppCompatActivity() {
             startActivity(i)
 
         }
+    }
+    private fun saveUserEmailToSharedPreferences(email: String) {
+        val editor = sharedPreferences.edit()
+        editor.putString("email_address", email)
+        editor.apply()
     }
 }

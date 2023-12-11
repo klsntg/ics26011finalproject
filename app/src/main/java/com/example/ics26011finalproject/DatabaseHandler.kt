@@ -63,6 +63,11 @@ class DatabaseHandler (context: Context) : SQLiteOpenHelper (context, DATABASE_N
         private const val KEY_ADD_TO_LIBRARY = "add_to_library"
         private const val KEY_ADD_TO_FAVE = "add_to_fave"
 
+        private const val TABLE_LIBRARY = "library"
+        private const val KEY_LIBRARY_ID = "library_id"
+        private const val KEY_USER_EMAIL_FK = "user_email_fk"
+        private const val KEY_BOOK_ID_FK = "book_id_fk"
+
     }
 
     override fun onCreate(db: SQLiteDatabase?) {
@@ -90,9 +95,17 @@ class DatabaseHandler (context: Context) : SQLiteOpenHelper (context, DATABASE_N
                 "$KEY_ADD_TO_FAVE INTEGER, " +
                 "FOREIGN KEY($KEY_CATEGORY_ID_FK) REFERENCES $TABLE_CATEGORIES($KEY_CATEGORY_ID))")
 
+        val CREATE_LIBRARY_TABLE = ("CREATE TABLE $TABLE_LIBRARY (" +
+                "$KEY_LIBRARY_ID INTEGER PRIMARY KEY," +
+                "$KEY_USER_EMAIL_FK TEXT," +
+                "$KEY_BOOK_ID_FK INTEGER," +
+                "FOREIGN KEY($KEY_USER_EMAIL_FK) REFERENCES $TABLE_USERS($KEY_EMAIL)," +
+                "FOREIGN KEY($KEY_BOOK_ID_FK) REFERENCES $TABLE_DETAILS($KEY_DETAILS_ID))")
+
         db?.execSQL(CREATE_USERS_TABLE)
         db?.execSQL(CREATE_CATEGORIES_TABLE)
         db?.execSQL(CREATE_DETAILS_TABLE)
+        db?.execSQL(CREATE_LIBRARY_TABLE)
 
         insertInitialCategories(db)
         insertInitialDetails(db)
@@ -975,11 +988,11 @@ class DatabaseHandler (context: Context) : SQLiteOpenHelper (context, DATABASE_N
         return categoryName
     }
     @SuppressLint("Range")
-    fun getLibraryBooks(): List<Details> {
+    fun getLibraryBooks(userEmail: String): List<Details> {
         val db = this.readableDatabase
-        val query = "SELECT * FROM $TABLE_DETAILS WHERE $KEY_ADD_TO_LIBRARY = 1"
+        val query = "SELECT * FROM $TABLE_DETAILS WHERE $KEY_ADD_TO_LIBRARY = 1 AND $KEY_DETAILS_ID IN (SELECT $KEY_BOOK_ID_FK FROM $TABLE_LIBRARY WHERE $KEY_USER_EMAIL_FK = ?)"
 
-        val cursor = db.rawQuery(query, null)
+        val cursor = db.rawQuery(query, arrayOf(userEmail))
         val libraryBooks = mutableListOf<Details>()
 
         cursor.use {
@@ -1003,61 +1016,54 @@ class DatabaseHandler (context: Context) : SQLiteOpenHelper (context, DATABASE_N
         db.close()
         return libraryBooks
     }
+
     @SuppressLint("Range")
-    fun addToLibrary(bookId: Int) : Boolean{
+    fun addToLibrary(userEmail: String, bookId: Int): Boolean {
         val db = this.writableDatabase
 
-        val isInLibrary = isBookInLibrary(bookId)
+        val isInLibrary = isBookInLibrary(userEmail, bookId)
 
         if (!isInLibrary) {
             val values = ContentValues()
-            values.put(KEY_ADD_TO_LIBRARY, 1) // Set KEY_ADD_TO_LIBRARY to 1 (true)
+            values.put(KEY_USER_EMAIL_FK, userEmail)
+            values.put(KEY_BOOK_ID_FK, bookId)
 
-            // Update the row with the specified bookId
-            db.update(
-                TABLE_DETAILS,
-                values,
-                "$KEY_DETAILS_ID = ?",
-                arrayOf(bookId.toString())
-            )
+            // Insert a new record in the library table
+            db.insert(TABLE_LIBRARY, null, values)
+
+            // Update the addToLibrary field in the details table
+            val updateValues = ContentValues()
+            updateValues.put(KEY_ADD_TO_LIBRARY, 1)
+            db.update(TABLE_DETAILS, updateValues, "$KEY_DETAILS_ID=?", arrayOf(bookId.toString()))
         }
 
         db.close()
         return !isInLibrary
     }
+
     @SuppressLint("Range")
-    private fun isBookInLibrary(bookId: Int): Boolean {
+    private fun isBookInLibrary(userEmail: String, bookId: Int): Boolean {
         val db = this.readableDatabase
-        val selection = "$KEY_DETAILS_ID = ? AND $KEY_ADD_TO_LIBRARY = 1"
-        val selectionArgs = arrayOf(bookId.toString())
-        val cursor = db.query(TABLE_DETAILS, null, selection, selectionArgs, null, null, null)
+        val selection = "$KEY_USER_EMAIL_FK = ? AND $KEY_BOOK_ID_FK = ?"
+        val selectionArgs = arrayOf(userEmail, bookId.toString())
+        val cursor = db.query(TABLE_LIBRARY, null, selection, selectionArgs, null, null, null)
 
         val isInLibrary = cursor.count > 0
         cursor.close()
-
 
         return isInLibrary
     }
 
     @SuppressLint("Range")
-    fun removeFromLibrary(bookId: Int): Boolean {
+    fun removeFromLibrary(userEmail: String, bookId: Int): Boolean {
         val db = this.writableDatabase
 
-        // Check if the book is in the library
-        val isInLibrary = isBookInLibrary(bookId)
+        // Check if the book is in the library for the specific user
+        val isInLibrary = isBookInLibrary(userEmail, bookId)
 
         if (isInLibrary) {
-            val values = ContentValues().apply {
-                put(KEY_ADD_TO_LIBRARY, 0) // Set KEY_ADD_TO_LIBRARY back to 0 (false)
-            }
-
-            // Update the row with the specified bookId
-            db.update(
-                TABLE_DETAILS,
-                values,
-                "$KEY_DETAILS_ID = ?",
-                arrayOf(bookId.toString())
-            )
+            // Delete the record from the library table
+            db.delete(TABLE_LIBRARY, "$KEY_USER_EMAIL_FK = ? AND $KEY_BOOK_ID_FK = ?", arrayOf(userEmail, bookId.toString()))
         }
 
         db.close()
