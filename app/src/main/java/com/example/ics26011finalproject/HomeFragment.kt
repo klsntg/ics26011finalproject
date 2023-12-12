@@ -25,8 +25,8 @@ class HomeFragment : Fragment() {
         val rvLibrary: RecyclerView = view.findViewById(R.id.rvlibrary)
         libraryAdapter = LibraryAdapter({ selectedBook ->
             // Handle remove from library click
-//            val removed = DatabaseHandler(requireContext()).removeFromLibrary(userEmail, selectedBook.id)
-//            if (removed) libraryAdapter.setBooks(DatabaseHandler(requireContext()).getLibraryBooks(userEmail))
+            val removed = DatabaseHandler(requireContext()).removeFromLibrary(userEmail, selectedBook)
+            if (removed) libraryAdapter.setBooks(DatabaseHandler(requireContext()).getLibraryBooks(userEmail))
             // Notify the adapter about the change
             libraryAdapter.notifyDataSetChanged()
         },{ selectedBook ->

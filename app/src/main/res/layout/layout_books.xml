@@ -42,15 +42,8 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <ImageButton
-                android:id="@+id/btnFave"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginBottom="9dp"
-                android:layout_marginStart="7dp"
-                android:contentDescription="NULL"
-                android:background="@drawable/icon_favorites"/>
+            android:orientation="vertical"
+            android:layout_gravity="center">
             <ImageButton
                 android:id="@+id/btnRemove"
                 android:layout_width="30dp"

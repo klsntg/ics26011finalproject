@@ -53,8 +53,7 @@ class BookDetailsFragment : Fragment() {
 
             btnBack.setOnClickListener {
                 // Handle the click event here
-                val intent = Intent(requireContext(), ListFragment::class.java)
-                startActivity(intent)
+                parentFragmentManager.popBackStack()
             }
         }
 
