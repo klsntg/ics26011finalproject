@@ -5,16 +5,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_margin="10dp"
     app:cardElevation="6dp">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:padding="5dp">
+
         <ImageView
             android:id="@+id/cover"
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:src="@drawable/logo" />
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -22,13 +25,14 @@
 
             <TextView
                 android:id="@+id/tvTitle"
-                android:layout_width="310dp"
+                android:layout_width="304dp"
                 android:layout_height="50dp"
                 android:lines="2"
                 android:text="@string/title"
                 android:textColor="@color/black"
                 android:textSize="18sp"
                 android:textStyle="bold" />
+
             <TextView
                 android:id="@+id/tvAuthor"
                 android:layout_width="250dp"
@@ -36,11 +40,10 @@
 
                 android:layout_marginTop="3dp"
                 android:text="@string/author"
-                android:textSize="12sp"
                 android:textColor="@color/black"
+                android:textSize="12sp"
                 android:textStyle="bold" />
         </LinearLayout>
-
 
 
     </LinearLayout>

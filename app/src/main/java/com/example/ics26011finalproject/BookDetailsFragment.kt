@@ -1,12 +1,14 @@
 package com.example.ics26011finalproject
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
@@ -45,7 +47,17 @@ class BookDetailsFragment : Fragment() {
                 .placeholder(R.drawable.logo)
                 .error(R.drawable.logo)
                 .into(view.findViewById<ImageView>(R.id.cover))
+
+            // Inside onCreateView method
+            val btnBack = view.findViewById<ImageButton>(R.id.btnBack)
+
+            btnBack.setOnClickListener {
+                // Handle the click event here
+                val intent = Intent(requireContext(), ListFragment::class.java)
+                startActivity(intent)
+            }
         }
+
 
         return view
     }
